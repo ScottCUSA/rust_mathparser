@@ -1,8 +1,10 @@
 use std::io::{self, Write};
 
 mod parsemath;
-use parsemath::ast;
-use parsemath::parser::{ParseError, Parser};
+use parsemath::{
+    ast,
+    parser::{ParseError, Parser},
+};
 
 fn evaluate(expr: &str) -> Result<f64, ParseError> {
     let mut parser = Parser::new(&expr)?;

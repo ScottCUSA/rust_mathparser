@@ -1,9 +1,9 @@
 use super::token::Token;
-use std::iter::Peekable;
-use std::str::Chars;
+use std::{iter::Peekable, str::Chars};
 
+#[derive(Debug)]
 pub struct Tokenizer<'a> {
-    expr: Peekable<Chars<'a>>
+    expr: Peekable<Chars<'a>>,
 }
 
 impl<'a> Tokenizer<'a> {
@@ -29,7 +29,7 @@ impl<'a> Iterator for Tokenizer<'a> {
                     }
                 }
                 Some(Token::Num(number.parse::<f64>().unwrap()))
-            },
+            }
             Some('+') => Some(Token::Add),
             Some('-') => Some(Token::Subtract),
             Some('*') => Some(Token::Multiply),
@@ -41,5 +41,4 @@ impl<'a> Iterator for Tokenizer<'a> {
             None => Some(Token::EOF),
         }
     }
-
 }

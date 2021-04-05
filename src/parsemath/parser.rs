@@ -1,5 +1,8 @@
-use super::token::{OperPrec, Token};
-use super::{ast::Node, tokenizer::Tokenizer};
+use super::{
+    ast::Node,
+    token::{OperPrec, Token},
+    tokenizer::Tokenizer,
+};
 use std::fmt;
 
 #[derive(Debug)]
